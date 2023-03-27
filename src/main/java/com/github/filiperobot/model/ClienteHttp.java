@@ -25,7 +25,7 @@ public class ClienteHttp {
         }
     }
 
-    public String getBody(){
+    public String getJson(){
         return json;
     }
 
