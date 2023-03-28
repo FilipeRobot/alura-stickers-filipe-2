@@ -6,6 +6,9 @@ import com.github.filiperobot.model.JsonParser;
 import java.util.List;
 import java.util.Map;
 
+import static com.diogonunes.jcolor.Ansi.colorize;
+import static com.diogonunes.jcolor.Attribute.*;
+
 public class Main {
     public static void main(String[] args) {
         // fazer uma conexão HTTP e buscar os top 250 filmes
@@ -21,9 +24,13 @@ public class Main {
         // exibir e manipular os dados
 
         for (Map<String, String> filme : listaDeFilmes) {
-            System.out.println(filme.get("title"));
-            System.out.println(filme.get("image"));
-            System.out.println(filme.get("imDbRating"));
+            System.out.println("Titulo: " + colorize(filme.get("title"), BOLD()));
+            System.out.println("Poster: " + colorize(filme.get("image"), BOLD()));
+            System.out.println(colorize("Classificação: " + colorize(filme.get("imDbRating"), BOLD()), TEXT_COLOR(255), MAGENTA_BACK()));
+            for (int i = 0; i < Math.round(Double.parseDouble(filme.get("imDbRating"))); i++){
+                System.out.print("⭐");
+            }
+            System.out.println();
             System.out.println();
         }
 
