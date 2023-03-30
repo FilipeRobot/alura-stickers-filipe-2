@@ -14,7 +14,7 @@ import static com.diogonunes.jcolor.Attribute.*;
 public class MainController {
     GeradoraDeFigurinhas figurinha = new GeradoraDeFigurinhas();
 
-    public String exibirContaudo(Conteudo conteudo) {
+    public void exibirContaudo(Conteudo conteudo) {
         String urlImage = conteudo.getUrlImagem();
         String imDbRating = conteudo.getRating();
 
@@ -26,26 +26,26 @@ public class MainController {
             for (int i = 0; i < Math.round(Double.parseDouble(imDbRating)); i++){
                 System.out.print("⭐");
             }
+            System.out.println();
         }
         System.out.println();
-        return urlImage;
     }
 
     public void exibir(List<Conteudo> conteudos, boolean gerarFigurinha, Integer limit){
         for (int index = 0; index < limit; index++) {
             Conteudo conteudo = conteudos.get(index);
 
-            String urlImage = exibirContaudo(conteudo);
+            exibirContaudo(conteudo);
 
             if (gerarFigurinha) {
-                geraFigurinha(urlImage, index);
+                geraFigurinha(conteudo.getUrlImagem(), conteudo.getTitle());
             }
         }
     }
 
-    public void geraFigurinha(String urlImage, Integer num){
+    public void geraFigurinha(String urlImage, String fileName){
         try (InputStream inputStream = new URL(urlImage).openStream()) {
-            figurinha.cria(inputStream, "figura" + (num + 1));
+            figurinha.cria(inputStream, fileName);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

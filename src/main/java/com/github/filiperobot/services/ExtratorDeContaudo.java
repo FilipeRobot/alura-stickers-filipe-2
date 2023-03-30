@@ -1,4 +1,6 @@
-package com.github.filiperobot.model;
+package com.github.filiperobot.services;
+
+import com.github.filiperobot.model.Conteudo;
 
 import java.util.List;
 

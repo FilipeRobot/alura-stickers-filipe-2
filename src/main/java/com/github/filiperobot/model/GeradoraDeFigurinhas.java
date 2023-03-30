@@ -47,6 +47,7 @@ public class GeradoraDeFigurinhas {
                     System.out.println("Pasta de saida de imagens criada: " + pasta.getCanonicalPath());
                 }
             }
+            nomeArquivo = nomeArquivo.replaceAll("[\\\\/:*?\"<>| ]", "_");
             ImageIO.write(novaImagem, "png", new File(pasta, nomeArquivo + ".png"));
         } catch (IOException exception) {
             throw new RuntimeException(exception);
