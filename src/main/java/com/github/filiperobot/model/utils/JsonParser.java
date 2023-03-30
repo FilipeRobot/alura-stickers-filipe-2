@@ -1,4 +1,4 @@
-package com.github.filiperobot.model;
+package com.github.filiperobot.model.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

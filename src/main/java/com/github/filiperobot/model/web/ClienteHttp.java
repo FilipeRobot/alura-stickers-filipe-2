@@ -1,4 +1,4 @@
-package com.github.filiperobot.model;
+package com.github.filiperobot.model.web;
 
 import java.io.IOException;
 import java.net.URI;
@@ -12,7 +12,6 @@ public class ClienteHttp {
     private final HttpResponse<String> httpResponse;
 
     public ClienteHttp(String url){
-
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest httpRequest = HttpRequest.newBuilder(URI.create(url)).GET().build();

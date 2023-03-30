@@ -69,3 +69,5 @@ build/
 /dataSources.local.xml
 
 src/main/resources/img/*
+
+src/main/resources/properties/config.properties
