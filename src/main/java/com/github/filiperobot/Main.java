@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         // fazer uma conexão HTTP e buscar os top 250 filmes
-        API api = API.IMDB_TOP_MOVIES_IMERSAO;
+        API api = API.LINGUAGENS;
 
         ClienteHttp clienteHttp = new ClienteHttp(api.getUrl());
 
@@ -24,7 +24,7 @@ public class Main {
 
         // exibir e manipular os dados
 
-        for (int index = 0; index < 3; index++) {
+        for (int index = 0; index < conteudos.size(); index++) {
             var conteudo = conteudos.get(index);
 
             controller.exibirContaudo(conteudo);
